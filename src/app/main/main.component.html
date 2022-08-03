@@ -1,0 +1,644 @@
+<!----------------------------------------------------Resume-Form-Starts------------------------------------------------------------->
+
+<body>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <div class="resume-builder-container">
+    <div>
+      <form>
+        <mat-vertical-stepper [linear]="true" class="stepper">
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Step 1" state="face">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <div class="form-group">
+              <label>Name </label>
+              <input
+                matInput
+                placeholder="Last name, First name"
+                type="text"
+                class="form-control"
+                name="name"
+                ngModel="name"
+                #name="ngModel"
+                [(ngModel)]="Fullname"
+                required
+                [class.is-invalid]="name.invalid && name.touched"
+              />
+              <small
+                style="color: red"
+                *ngIf="name.invalid && name.touched"
+                >Name cannot be empty</small
+              >
+            </div>
+            <button mat-button matStepperNext [disabled]="!name.valid">
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Step 2" state="phone">
+            <ng-template matStepLabel>Fill out your Phone Number</ng-template>
+            <div class="form-group">
+              <label>Phone Number </label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Enter Your Phone Number"
+                pattern="[1-9]{1}[0-9]{9}"
+                name="phno"
+                #phone="ngModel"
+                [(ngModel)]="phoneNumber"
+                ngModel
+                required
+                [class.is-invalid]="phone.invalid && phone.touched"
+              />
+              <small
+                style="color: red"
+                *ngIf="phone.invalid && phone.touched"
+                >Please Enter a Valid Phone Number</small
+              >
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext [disabled]="!phone.valid">
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Step 3" state="email">
+            <ng-template matStepLabel>Fill out your Email</ng-template>
+            <div class="form-group">
+              <label>Email Id </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Your Email Address"
+                name="email"
+                #email="ngModel"
+                pattern="[A-Z-a-z0-9]+@gmail.com"
+                [(ngModel)]="Email"
+                ngModel
+                required
+                [class.is-invalid]="email.invalid && email.touched"
+              />
+              <small
+                class="error"
+                *ngIf="email.invalid && email.touched"
+                style="color: red"
+                >Please Enter a valid Email</small
+              >
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext [disabled]="!email.valid">
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Step 4" state="home">
+            <ng-template matStepLabel>Fill out your Address</ng-template>
+            <div class="form-group">
+              <label>Address</label>
+              <input
+                matInput
+                placeholder="Enter Address"
+                type="text"
+                class="form-control"
+                name="address"
+                #address="ngModel"
+                [(ngModel)]="Address"
+                ngModel
+                required
+                [class.is-invalid]="address.invalid && address.touched"
+              />
+              <small
+                style="color: red"
+                *ngIf="address.invalid && address.touched"
+                >Address can't be empty</small
+              >
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext [disabled]="!address.valid">
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Step 5" state="chat">
+            <ng-template matStepLabel
+              >Fill out your Profile Summary</ng-template
+            >
+            <div class="form-group">
+              <mat-label>Profile Summary</mat-label><br />
+              <textarea
+                matInput
+                style="height: 200px; max-width: 245px; position: relative; margin-bottom: 20px;"
+                placeholder="Ex. I am Fresher......."
+                class="form-control"
+                name="profile_summary"
+                #profile_summary="ngModel"
+                [(ngModel)]="PS"
+                ngModel
+                required
+                [class.is-invalid]="
+                  profile_summary.invalid && profile_summary.touched
+                "
+              ></textarea>
+              <small
+                style="color: red"
+                 *ngIf="profile_summary.invalid && profile_summary.touched"
+
+                >Enter Profile Summary</small
+              >
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button
+              mat-button
+              matStepperNext
+              [disabled]="!profile_summary.valid"
+            >
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Date of Birth" state="today">
+            <div class="form-group">
+              <mat-label>Choose a date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder="Date"
+                class="form-control"
+                name="dob"
+                #dob="ngModel"
+                [(ngModel)]="DOB"
+                ngModel
+                required
+                [class.is-invalid]="dob.invalid && dob.touched"
+              />
+              <small
+                style="color: red"
+                *ngIf="dob.invalid && dob.touched"
+                >Enter Date of Birth</small
+              >
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext [disabled]="!dob.valid">
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+
+          <mat-step label="Add Skilss" state="assignment">
+            <div class="form-group">
+              <input
+                name="skill"
+                [(ngModel)]="Skill"
+                placeholder="Skills"
+                class="form-control"
+                id="skills"
+                #skills
+
+              />
+              <small
+                style="color: rgb(3, 114, 16)"
+                *ngIf="skills.validity "
+                >Add Again for More Skills</small
+              >
+              <button
+                mat-mini-fab 
+                color="basic"
+                class="addButton"
+                (click)="addSkills()"
+                (click)="skills.value = ''"
+              >
+               <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext>
+              Next
+            </button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+          <mat-step label="Education" state="school">
+            <ng-template matStepLabel>Education</ng-template>
+            <div class="form-group">
+              <label>University Name:</label><br />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Your University Name "
+                name="university_name"
+                #university_name="ngModel"
+                [(ngModel)]="university"
+                ngModel
+                required
+                [class.is-invalid]="
+                  university_name.invalid && university_name.touched
+                "
+              />
+              <small
+                style="color: red"
+                *ngIf="university_name.invalid && university_name.touched"
+
+                >University name cant be empty</small
+              ><br>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Degree Name"
+                name="degree"
+                #degree="ngModel"
+                [(ngModel)]="Degree"
+                ngModel
+                required
+                [class.is-invalid]="degree.invalid && degree.touched"
+              />
+              <small
+                style="color: red"
+                *ngIf="degree.invalid && degree.touched"
+                >Degree name cant be empty</small
+              ><br>
+
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Percentage"
+                name="percent"
+                #percent="ngModel"
+                [(ngModel)]="Percentage"
+                ngModel
+                required
+              />
+              <br>
+              <input
+                type="text"
+                class="form-control"
+                name="edyear"
+                #edyear="ngModel"
+                placeholder="Enter Passing Year"
+                [(ngModel)]="edu_year"
+                ngModel
+                required
+              /><br><br>
+
+              <textarea
+                matInput
+                style="height: 200px; max-width: 245px; position: relative; margin-bottom: 20px;"
+                placeholder="Ex. I pursued my degree......."
+                class="form-control"
+                name="ed"
+                #ed="ngModel"
+                [(ngModel)]="ED"
+                ngModel
+                required
+                [class.is-invalid]="ed.invalid && ed.touched"
+              ></textarea>
+              <small
+                style="color: red"
+                *ngIf="ed.invalid && ed.touched"
+                >Enter Education Description</small
+              ><br><br><br><br><br>
+
+            <label>University /College Name:</label><br />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Your University Name "
+                name="university_name2"
+                #university_name2="ngModel"
+                [(ngModel)]="university2"
+                ngModel
+                required
+                [class.is-invalid]="
+                  university_name2.invalid && university_name2.touched
+                "
+              />
+              <small
+                style="color: red"
+                *ngIf="university_name2.invalid && university_name2.touched"
+
+                >University name cant be empty</small
+              ><br /><br>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Degree Name"
+                name="degree2"
+                #degree2="ngModel"
+                [(ngModel)]="Degree2"
+                ngModel
+                required
+                [class.is-invalid]="degree2.invalid && degree2.touched"
+              />
+              <small
+                style="color: red"
+                *ngIf="degree2.invalid && degree2.touched"
+                >Degree name cant be empty</small
+              ><br /><br>
+
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Percentage"
+                name="percent2"
+                #percent2="ngModel"
+                [(ngModel)]="Percentage2"
+                ngModel
+                required
+              />
+              <br>
+              <input
+                type="text"
+                class="form-control"
+                name="ed2year"
+                #ed2year="ngModel"
+                placeholder="Enter Passing Year"
+                [(ngModel)]="edu_year2"
+                ngModel
+                required
+              /><br><br>
+
+              <textarea
+                matInput
+                style="height: 200px; max-width: 245px; position: relative; margin-bottom: 20px;"
+                placeholder="Ex. I completed my degree......."
+                class="form-control"
+                name="ed2"
+                #ed2="ngModel"
+                [(ngModel)]="ED2"
+                ngModel
+                required
+                [class.is-invalid]="ed2.invalid && ed2.touched"
+              ></textarea>
+              <small
+                style="color: red"
+                *ngIf="ed2.invalid && ed2.touched"
+                >Enter Education Description</small
+              ><br>
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext [disabled]="!phone.valid">
+              Next
+            </button>
+          </mat-step>
+          <!----------------------------------------------------------------->
+          <mat-step label="Experience" state="work">
+            <div class="form-group">
+              <ng-template matStepLabel>Experience</ng-template>
+              <div class="select">
+                <mat-radio-group
+                  name="radio"
+                  id="slct"
+                  [(ngModel)]="selectedOption"
+                >
+                  <mat-radio-button value="1">Yes</mat-radio-button> &nbsp;
+                  <mat-radio-button value="2">No</mat-radio-button>
+                </mat-radio-group>
+                <br><br>
+              </div>
+              <div *ngIf="selectedOption == '1'">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Company Name "
+                  name="company"
+                  #company="ngModel"
+                  [(ngModel)]="company_name"
+                  ngModel
+                  required
+                  [class.is-invalid]="company.invalid && company.touched"
+                /><br>
+                <small
+                  style="color: red"
+                  *ngIf="company.invalid && company.touched"
+                  >Company name cant be empty</small
+                ><br>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Job Designation "
+                  name="jd"
+                  #jd="ngModel"
+                  [(ngModel)]="JD"
+                  ngModel
+                  required
+                  [class.is-invalid]="jd.invalid && jd.touched"
+                /><br>
+                <small
+                  style="color: red"
+                  *ngIf="jd.invalid && jd.touched"
+                  >Job Designation can't be empty</small
+                ><br>
+                <textarea
+                  matInput
+                  style="height: 200px; max-width: 245px; position: relative; margin-bottom: 20px;"
+                  placeholder="Ex. I worked as a web deveoper......."
+                  class="form-control"
+                  name="jdd"
+                  #jdd="ngModel"
+                  [(ngModel)]="Jdescription"
+                  ngModel
+                  required
+                  [class.is-invalid]="jdd.invalid && jdd.touched"
+                ></textarea><br>
+                <small
+                  style="color: red"
+                  *ngIf="jdd.invalid && jdd.touched"
+                  >Job Description can't be empty</small
+                ><br>
+                <input
+                  type="text"
+                  placeholder="Number of Years / Months "
+                  class="form-control"
+                  name="experience"
+                  #experience="ngModel"
+                  [(ngModel)]="Experience"
+                  ngModel
+                  required
+                  [class.is-invalid]="experience.invalid && experience.touched"
+                /><br>
+
+                <small
+                  style="color: red"
+                  *ngIf="experience.invalid && experience.touched"
+                  >Please specify Month or Years with number of years</small
+                >
+              </div>
+            </div>
+            
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext [disabled]="JD.valid">
+              Next
+            </button>
+          
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+          <mat-step label="Add Hobbies" state="	bubble_chart">
+            <div class="form-group">
+              <input
+                name="hobbies"
+                [(ngModel)]="Hobbies"
+                placeholder="hobbies"
+                class="form-control"
+                id="hobbies"
+                #hobbies
+              />
+              <button
+              mat-mini-fab 
+              color="basic"
+              class="addButton2"
+                (click)="addHobbies()"
+                (click)="hobbies.value = ''"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <button mat-button matStepperPrevious>Previous</button>
+          </mat-step>
+
+          <!----------------------------------------------------------------->
+          <!----------------------------------------------------------------->
+        </mat-vertical-stepper>
+      </form>
+    </div>
+
+    <!----------------------------------------------------Resume-Form-Ends------------------------------------------------------------->
+
+    <!-- <div >
+  <a>{{Fullname}}</a><br>
+  <a>{{phoneNumber}}</a><br>
+  <a>{{Email}}</a><br>
+  <a>{{Address}}</a><br>
+  <a>{{PS}}</a><br>
+  <a>{{DOB | date:'dd-MM-yyyy'}}</a>
+
+  </div> -->
+
+    <!----------------------------------------------------Resume-Form-Display-area------------------------------------------------------------->
+
+    <div class="resume-container">
+      <div id="pdf" #pdf>
+        <div class="resume-container-2">
+          <header>
+            <h2>{{ Fullname }}</h2>
+
+            <div class="row">
+              <ul>
+                <li class="resume-address">
+                  <a class="contact-info-title">Address:&nbsp;</a>{{ Address }}
+                </li>
+                <li class="phone">
+                  <span> <a class="contact-info-title">Contact No:&nbsp;</a>{{ phoneNumber }} </span>
+                </li>
+                <li class="resume-email">
+                  <a class="contact-info-title">Email:&nbsp;</a>{{ Email }}
+                </li>
+              </ul>
+            </div>
+          </header>
+
+          <article>
+            <h4>Profile Summary</h4>
+            <div class="row">
+            <ul>
+              <li>{{PS}}</li>
+            </ul>
+          </div>
+          </article>
+
+          <article>
+            <h4>Education</h4>
+
+            <div class="row">
+              <ul>
+                <li class="header">
+                  {{ Degree }}
+                </li>
+                <li>{{ university }}</li>
+                <li class="description">
+                  {{ ED }}
+                </li>
+                <li>{{ Percentage }}%</li>
+                <li>Passing Year :{{edu_year}}</li>
+              </ul>
+            </div>
+
+            <div class="row">
+              <ul>
+                <li class="header">
+                  {{ Degree2 }}
+                </li>
+                <li>
+                  {{ university2 }}
+                </li>
+                <li class="description">
+                  {{ ED2 }}
+                </li>
+                <li>{{ Percentage2 }}%</li>
+                <li>Passing Year : {{ edu_year2 }}</li>
+              </ul>
+            </div>
+          </article>
+
+          <article *ngIf="selectedOption == '1'">
+            <h4>Experience</h4>
+
+            <div class="row ">
+              <ul>
+                <li class="header">
+                  {{ JD }}
+                  <span>{{ company_name }}</span>
+                </li>
+                <li>
+                 {{Jdescription}}
+                </li>
+                <li>
+                 Experience: {{Experience}}
+                </li>
+                
+              </ul>
+            </div>
+          </article>
+
+          <article>
+            <h4>Skills / Expertise</h4>
+
+            <div class="row">
+              <ul id="list">
+                <li></li>
+              </ul>
+            </div>
+          </article>
+
+          <article>
+            <h4>Hobbies</h4>
+            <ul id="list2">
+              <li></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="pdf-button1" (click)="viewPDF()">View Resume</button>&nbsp;
+  <button class="pdf-button" (click)="downloadAsPDF()">Downlaod Resume</button>
+</body>

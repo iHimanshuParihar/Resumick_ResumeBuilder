@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+.container{
+  z-index: 0;
+  position: relative;
+  top: 77px;
+}
+.navbar {
+  font-size: 18px;
+  background:#3f51b5 ;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  margin-bottom:30px ;
+}
+
+.main-nav {
+  list-style-type: none;
+  display: none;
+}
+span{
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.main-nav li {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.logo {
+  width: 100%;
+  max-width: 249px;
+  height: auto;  
+}
+
+.navbar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+}
+
+
+
+
+
+#chkToggle {
+  display: none;
+}
+
+#chkToggle:checked + ul.main-nav {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center;
+  }
+
+  #chkToggle:checked + ul.main-nav {
+    display: flex;
+    height: 10px;
+  }
+  
+  
+
+  .main-nav {
+    display: flex;
+    margin-right: 30px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .main-nav li {
+    margin: 0;
+  }
+
+  .nav-links {
+    margin-left: 40px;
+  }
+
+ 
+  .navbar-toggle {
+    display: none;
+  }
+
+  .logo:hover,
+  .nav-links:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  
+}
+//   @media screen and (max-width: 750px) {
+
+//   .container{
+//     display: none;
+//   }
+
+
+
+//   .display-txt{
+//     display: flex;
+//     border-radius: 20px;
+//     justify-content: center;
+//     letter-spacing: 6px;
+//     padding-bottom: 10px;
+//     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+//     cursor: pointer;
+//     color: rgba(5, 5, 5, 0.8);
+//     font-size: 24px; 
+//     z-index: 99;
+//  }
+
+
+
+
+// }
